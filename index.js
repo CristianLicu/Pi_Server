@@ -6,6 +6,7 @@ const port = 3443;                   // Server-Port auf 3443 festgelegt
 const bodyParser = require("body-parser");      // body-parser Modul eingebunden
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
 
 app.listen(port, () =>{                         // Hört auf Port
     console.log("server gestartet");            
