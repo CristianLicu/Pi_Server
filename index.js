@@ -12,6 +12,7 @@ app.listen(port, () =>{                         // Hört auf Port
 })
 
 app.post("/apiTest", function (request, response) {
-    console.log(request);
+    console.log(request.body);
+    let stringspeicher = request.body.TestString;
     response.sendStatus(200);
 })
