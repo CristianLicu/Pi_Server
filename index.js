@@ -12,9 +12,11 @@ app.listen(port, () =>{                         // Hört auf Port
     console.log("server gestartet");            
 })
 
-app.post("/apiTest", function (request, response) {
+app.post("/TempSensor", function (request, response) {
     console.log(request.body);
-    let stringspeicher = request.body.TestString;
-    console.log(stringspeicher);
+    let temp = request.body.temperatur;
+    let feucht = request.body.feuchtigkeit;
+    console.log(temp);
+    console.log(feucht);
     response.sendStatus(200);
 })
