@@ -1,5 +1,5 @@
 const ws = new WebSocket("ws://192.168.0.115:8080");
-
+console.log("verbinde....");
 ws.addEventListener("open", () => {
   console.log("Client connected with server!");
 });
