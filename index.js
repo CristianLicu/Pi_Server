@@ -5,6 +5,8 @@ const port = 3443;                   // Server-Port auf 3443 festgelegt
 
 const bodyParser = require("body-parser");      // body-parser Modul eingebunden
 
+const webSocket = require("ws");
+const wss=new webSocket.Server({port:8080});
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
@@ -19,4 +21,9 @@ app.post("/TempSensor", function (request, response) {
     console.log(temp);
     console.log(feucht);
     response.sendStatus(200);
+})
+wss.on("connection", function concetion(ws) {
+    ws.on("message", function incoming(message){
+        console.log(message);
+    })    
 })
