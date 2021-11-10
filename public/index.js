@@ -8,11 +8,11 @@ ws.addEventListener("message", function (event) {
   const data = JSON.parse(event.data);
   switch (data.type) {
       case 'temperatur':
-          document.getElementById("h1Temp").innerHTML() = data.value;
+          document.getElementById("h1Temp").innerText = data.value;
           break;
 
       case 'feuchtigkeit':
-          document.getElementById("h1Feucht").innerHTML() = data.value;
+          document.getElementById("h1Feucht").innerText = data.value;
           break;
   
       default:
