@@ -31,7 +31,7 @@ wss.on("connection", function concetion(ws) {
 
 function broadcast(temp, feucht) {
     wss.clients.forEach(function each(client) {
-        client.send(JSON.stringify({type: temperatur, value: temp}));
-        client.send(JSON.stringify({type: feuchtigkeit, value: feucht}));
+        client.send(JSON.stringify({type: 'temperatur', value: temp}));
+        client.send(JSON.stringify({type: 'feuchtigkeit', value: feucht}));
     })
 }
