@@ -20,6 +20,7 @@ app.post("/TempSensor", function (request, response) {
     let feucht = request.body.feuchtigkeit;
     console.log(temp);
     console.log(feucht);
+    broadcast(temp, feucht);
     response.sendStatus(200);
 })
 wss.on("connection", function concetion(ws) {
@@ -27,3 +28,10 @@ wss.on("connection", function concetion(ws) {
         console.log(message);
     })    
 })
+
+function broadcast(temp, feucht) {
+    wss.clients.forEach(function each(client) {
+        client.send(JSON.stringify({type: temperatur, value: temp}));
+        client.send(JSON.stringify({type: feuchtigkeit, value: feucht}));
+    })
+}
